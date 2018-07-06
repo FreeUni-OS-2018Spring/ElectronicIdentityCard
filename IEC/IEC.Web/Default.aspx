@@ -5,7 +5,6 @@
     <div class="col-md-12">
         <div class="card card-body" style="text-align: center; cursor: pointer;" data-toggle="collapse" data-target="#filter-panel">
             ↕ Search ↕
-       
         </div>
         <div id="filter-panel" class="collapse show">
             <div class="card card-body">
@@ -36,8 +35,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
     </div>
     <br />
     <br />
