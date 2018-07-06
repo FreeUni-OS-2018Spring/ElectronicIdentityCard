@@ -31,13 +31,13 @@ namespace IEC.Web {
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
         
         /// <summary>
-        /// dwlCitizenship control.
+        /// lstCitizenship control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dwlCitizenship;
+        protected global::System.Web.UI.WebControls.DropDownList lstCitizenship;
         
         /// <summary>
         /// lstGenders control.
@@ -49,13 +49,13 @@ namespace IEC.Web {
         protected global::System.Web.UI.WebControls.DropDownList lstGenders;
         
         /// <summary>
-        /// lstPersonalNumber control.
+        /// txtPersonalNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lstPersonalNumber;
+        protected global::System.Web.UI.WebControls.TextBox txtPersonalNumber;
         
         /// <summary>
         /// dtBirthDate control.
@@ -76,13 +76,13 @@ namespace IEC.Web {
         protected global::System.Web.UI.WebControls.TextBox dtIssueDate;
         
         /// <summary>
-        /// dtExperationDate control.
+        /// dtDateOfExpiry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dtExperationDate;
+        protected global::System.Web.UI.WebControls.TextBox dtDateOfExpiry;
         
         /// <summary>
         /// lstBirthPlaces control.
@@ -103,12 +103,30 @@ namespace IEC.Web {
         protected global::System.Web.UI.WebControls.TextBox txtNumber;
         
         /// <summary>
-        /// Button1 control.
+        /// txtOrganization control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox txtOrganization;
+        
+        /// <summary>
+        /// lblMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMessage;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }
