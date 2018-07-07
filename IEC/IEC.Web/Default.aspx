@@ -7,7 +7,7 @@
             ↕ Search ↕
        
         </div>
-        <div id="filter-panel" class="collapse show">
+        <div id="filter-panel" class="collapse">
             <div class="card card-body">
                 <div class="row">
                     <br />

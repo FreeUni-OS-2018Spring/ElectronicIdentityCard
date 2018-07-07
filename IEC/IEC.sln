@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEC.Web", "IEC.Web\IEC.Web.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEC.DAL", "IEC.DAL\IEC.DAL.csproj", "{7FE13FDD-6FA2-44B4-821A-A9EAEE3049F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IEC.BLL", "IEC.BLL\IEC.BLL.csproj", "{BCB45B05-7E7C-4DF5-8080-7A2DA4366A17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7FE13FDD-6FA2-44B4-821A-A9EAEE3049F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FE13FDD-6FA2-44B4-821A-A9EAEE3049F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FE13FDD-6FA2-44B4-821A-A9EAEE3049F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCB45B05-7E7C-4DF5-8080-7A2DA4366A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCB45B05-7E7C-4DF5-8080-7A2DA4366A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCB45B05-7E7C-4DF5-8080-7A2DA4366A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCB45B05-7E7C-4DF5-8080-7A2DA4366A17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

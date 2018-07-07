@@ -12,11 +12,11 @@ using System.Web.UI.WebControls;
 
 namespace IEC.Web
 {
-    public partial class New : System.Web.UI.Page
+    public partial class Edit : System.Web.UI.Page
     {
         private readonly IDentityCardsValidator _validator;
 
-        public New()
+        public Edit()
         {
             _validator = new IDentityCardsValidator();
         }
@@ -33,6 +33,7 @@ namespace IEC.Web
         {
             using (var uwork = new UnitOfWork(new IECContext()))
             {
+
                 lstBirthPlaces.DataSource = uwork.Cities.GetAll().ToList().Select(c => new ListItem(c.Name, c.ID.ToString()));
                 lstBirthPlaces.DataTextField = "text";
                 lstBirthPlaces.DataValueField = "value";
@@ -48,8 +49,38 @@ namespace IEC.Web
                 lstGenders.DataValueField = "value";
                 lstGenders.DataBind();
 
+
+                var idQuery = Request.QueryString["id"];
+                int id;
+                if (int.TryParse(idQuery, out id))
+                {
+                    var identityCard = uwork.IdentityCards.Get(id);
+                    txtFirstName.Text = identityCard.FirstName;
+                    txtLastName.Text = identityCard.LastName;
+                    txtNumber.Text = identityCard.CardNumber;
+                    txtOrganization.Text = identityCard.Organization;
+                    txtPersonalNumber.Text = identityCard.PersonalNumber;
+                    dtBirthDate.Text = identityCard.BirthDate.ToString("yyyy-MM-dd");
+                    dtDateOfExpiry.Text = identityCard.DateOfExpiry.ToString("yyyy-MM-dd");
+                    dtIssueDate.Text = identityCard.IssueDate.ToString("yyyy-MM-dd");
+                    lstBirthPlaces.SelectedValue = identityCard.CityID.ToString();
+                    lstCitizenship.SelectedValue = identityCard.CountryID.ToString();
+                    lstGenders.SelectedValue = identityCard.GenderID.ToString();
+                    hdnID.Value = identityCard.ID.ToString();
+                }
+                else
+                {
+                    Response.Redirect("Default.aspx");
+                }
+
             }
         }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
+
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -77,24 +108,22 @@ namespace IEC.Web
                 return;
             }
 
-            var identityCard = new IdentityCard
-            {
-                BirthDate = birthDate,
-                CardNumber = txtNumber.Text,
-                CityID = int.Parse(lstBirthPlaces.SelectedItem.Value),
-                CountryID = int.Parse(lstCitizenship.SelectedItem.Value),
-                DateOfExpiry = experationDate,
-                GenderID = int.Parse(lstGenders.SelectedItem.Value),
-                IssueDate = issueDate,
-                Organization = txtOrganization.Text,
-                PersonalNumber = txtPersonalNumber.Text,
-                LastName = txtLastName.Text,
-                FirstName = txtFirstName.Text
-            };
-
             using (var uwork = new UnitOfWork(new IECContext()))
             {
-                if (!_validator.IsValidID(identityCard))
+                var identitCard = uwork.IdentityCards.Get(int.Parse(hdnID.Value));
+                identitCard.BirthDate = birthDate;
+                identitCard.CardNumber = txtNumber.Text;
+                identitCard.CityID = int.Parse(lstBirthPlaces.SelectedItem.Value);
+                identitCard.CountryID = int.Parse(lstCitizenship.SelectedItem.Value);
+                identitCard.DateOfExpiry = experationDate;
+                identitCard.GenderID = int.Parse(lstGenders.SelectedItem.Value);
+                identitCard.IssueDate = issueDate;
+                identitCard.Organization = txtOrganization.Text;
+                identitCard.PersonalNumber = txtPersonalNumber.Text;
+                identitCard.LastName = txtLastName.Text;
+                identitCard.FirstName = txtFirstName.Text;
+
+                if (!_validator.IsValidID(identitCard))
                 {
                     lblMessage.ForeColor = Color.Red;
                     lblMessage.Text = "მონაცემები არასწორადაა შეყვანილი.";
@@ -102,16 +131,11 @@ namespace IEC.Web
                 }
                 else
                 {
-                    uwork.IdentityCards.Add(identityCard);
                     uwork.Save();
                     Response.Redirect("Default.aspx");
                 }
             }
-        }
 
-        protected void btnBack_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Default.aspx");
         }
     }
 }

@@ -139,6 +139,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Edit.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -208,6 +209,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -255,6 +263,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IEC.BLL\IEC.BLL.csproj">
+      <Project>{BCB45B05-7E7C-4DF5-8080-7A2DA4366A17}</Project>
+      <Name>IEC.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IEC.DAL\IEC.DAL.csproj">
       <Project>{7fe13fdd-6fa2-44b4-821a-a9eaee3049f4}</Project>
       <Name>IEC.DAL</Name>

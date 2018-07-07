@@ -106,6 +106,11 @@ namespace IEC.Web
                     BindData();
                 }
             }
+            else if (e.CommandName == "editRecord")
+            {
+                int recordID = int.Parse(e.CommandArgument.ToString());
+                Response.Redirect("edit.aspx?id=" + recordID);
+            }
         }
     }
 }

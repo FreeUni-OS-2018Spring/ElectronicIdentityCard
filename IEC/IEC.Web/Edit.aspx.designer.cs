@@ -10,7 +10,16 @@
 namespace IEC.Web {
     
     
-    public partial class New {
+    public partial class Edit {
+        
+        /// <summary>
+        /// hdnID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnID;
         
         /// <summary>
         /// txtFirstName control.

@@ -1,10 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="New.aspx.cs" Inherits="IEC.Web.New" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Edit.aspx.cs" Inherits="IEC.Web.Edit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <div id="filter-panel">
                 <div class="card card-body">
+                    <asp:HiddenField ID="hdnID" runat="server" />
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-horizontal">
@@ -133,21 +135,20 @@
                                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label><br />
                                 <asp:Button ID="btnSave" CssClass="btn btn-success" runat="server" Text="Save" OnClick="btnSave_Click" />
                             </div>
-                            
+
                         </div>
-                           <div class="col-md-12">
+                        <div class="col-md-12">
 
                             <div class="form-horizontal" style="text-align: center">
                                 <asp:Label ID="Label1" runat="server" Text=""></asp:Label><br />
                                 <asp:Button ID="Button1" CssClass="btn btn-primary" runat="server" Text="Back to List" OnClick="btnBack_Click" />
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
     <script>
         $(document).ready(function () {
