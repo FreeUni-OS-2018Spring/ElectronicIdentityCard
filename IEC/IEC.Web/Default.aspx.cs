@@ -26,7 +26,9 @@ namespace IEC.Web
                 dgvCards.DataSource = uwork.IdentityCards.GetAll().ToList();
                 dgvCards.DataBind();
 
-                lstBirthPlace.DataSource = uwork.Cities.GetAll().ToList().Select(c => new ListItem(c.Name, c.ID.ToString()));
+                var birthPlaces = uwork.Cities.GetAll().ToList().Select(c => new ListItem(c.Name, c.ID.ToString())).ToList();
+                birthPlaces.Insert(0, new ListItem("ყველა", "0"));
+                lstBirthPlace.DataSource = birthPlaces;
                 lstBirthPlace.DataTextField = "text";
                 lstBirthPlace.DataValueField = "value";
                 lstBirthPlace.DataBind();
@@ -34,40 +36,6 @@ namespace IEC.Web
 
         }
 
-        protected void Insert(object sender, EventArgs e)
-        {
-
-
-        }
-
-        protected void OnRowEditing(object sender, GridViewEditEventArgs e)
-        {
-
-        }
-
-        protected void OnRowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-
-        }
-
-        protected void OnRowCancelingEdit(object sender, EventArgs e)
-        {
-        }
-
-        protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-
-        }
-
-        protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
-        {
-
-        }
-
-        protected void OnPaging(object sender, GridViewPageEventArgs e)
-        {
-
-        }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
@@ -102,6 +70,12 @@ namespace IEC.Web
                 {
                     var dateOfExpiry = DateTime.Parse(dtDateOfExpiryTo.Text).Date;
                     ids = ids.Where(id => id.BirthDate <= dateOfExpiry);
+                }
+
+                var selectedCity = int.Parse(lstBirthPlace.SelectedValue);
+                if (selectedCity != 0)
+                {
+                    ids = ids.Where(id => id.CityID == selectedCity);
                 }
 
                 dgvCards.DataSource = ids.ToList();

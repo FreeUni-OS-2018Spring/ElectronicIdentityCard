@@ -144,6 +144,7 @@
             $('.datepicker-field').datetimepicker({
                 format: 'YYYY-MM-DD'
             });
+
         });
     </script>
 </asp:Content>
